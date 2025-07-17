@@ -18,7 +18,7 @@ const Galleryiew: React.FC = () => {
         {IMAGES.map(image => (
           <Link
             key={image.id}
-            to={`/img/${image.id}`}
+            to={`/gallery/${image.id}`}
             state={{ backgroundLocation: location }}
           >
             <img
