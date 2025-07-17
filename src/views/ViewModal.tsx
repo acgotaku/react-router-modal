@@ -1,14 +1,12 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { Link, useLocation } from 'react-router-dom';
-import ImageView from './ImageView';
-import { getImageById } from '../assets';
+import ViewView from './ViewView';
+import { getViewById } from '../assets';
 import { Button, Dialog, DialogActions, DialogContent } from '@mui/material';
 
-const ImageModal = () => {
+const ViewModal = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const { id } = useParams();
-  const image = getImageById(id || '');
+  const image = getViewById(id || '');
 
   if (!image) return null;
 
@@ -19,20 +17,13 @@ const ImageModal = () => {
   return (
     <Dialog open onClose={handleClose}>
       <DialogContent>
-        <ImageView />
+        <ViewView />
       </DialogContent>
       <DialogActions>
-        <Link
-          key={image.viewId}
-          to={`/view/${image.viewId}`}
-          state={{ backgroundLocation: location }}
-        >
-          Go to View
-        </Link>
         <Button onClick={handleClose}>Close</Button>
       </DialogActions>
     </Dialog>
   );
 };
 
-export default ImageModal;
+export default ViewModal;

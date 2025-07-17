@@ -1,11 +1,11 @@
 import { Button, Link, Stack, Typography, Box } from '@mui/material';
 import { useLocation, useParams, Link as RouterLink } from 'react-router-dom';
-import { getImageById } from '../assets';
+import { getViewById } from '../assets';
 
 const ImageView = () => {
   const { state } = useLocation();
   const { id } = useParams();
-  const image = getImageById(id || '');
+  const image = getViewById(id || '');
 
   const isInsideModal = state?.backgroundLocation;
 
@@ -24,7 +24,7 @@ const ImageView = () => {
 
           <Box
             component="img"
-            sx={{ width: '600px' }}
+            sx={{ width: '400px' }}
             src={image?.src}
             alt="dog"
           />

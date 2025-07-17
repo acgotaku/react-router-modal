@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { IMAGES } from '../assets';
+import { IMAGES, VIEWS } from '../assets';
 
 const Galleryiew: React.FC = () => {
   const location = useLocation();
@@ -30,6 +30,24 @@ const Galleryiew: React.FC = () => {
               }}
               src={image.src}
               alt={image.title}
+            />
+          </Link>
+        ))}
+        {VIEWS.map(view => (
+          <Link
+            key={view.id}
+            to={`/view/${view.id}`}
+            state={{ backgroundLocation: location }}
+          >
+            <img
+              width={200}
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '8px'
+              }}
+              src={view.src}
+              alt={view.title}
             />
           </Link>
         ))}
