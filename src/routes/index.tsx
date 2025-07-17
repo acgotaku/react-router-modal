@@ -19,6 +19,10 @@ const router = createBrowserRouter([
         element: <ImageView />
       }
     ]
+  },
+  {
+    path: '*',
+    element: <div>404 Not Found</div>
   }
 ]);
 

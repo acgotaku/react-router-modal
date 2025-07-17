@@ -1,7 +1,10 @@
 import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 
 const Layout: React.FC = () => {
+  const location = useLocation();
+  const backgroundLocation = location.state?.backgroundLocation;
+
   return (
     <div>
       <header>React Router Modal Demo</header>
@@ -15,7 +18,7 @@ const Layout: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <Outlet />
+      <Outlet context={{ backgroundLocation: backgroundLocation }} />
     </div>
   );
 };
